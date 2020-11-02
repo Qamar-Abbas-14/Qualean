@@ -66,6 +66,9 @@ class qualean (object):
             return self._num * value._num
         return self._num * Decimal (value)
 
+    def __rmul__ (self, value):
+        return self.__mul__(value)
+
     def __add__ (self, value):
         if isinstance (value, qualean):
             return self._num + value._num
@@ -142,3 +145,19 @@ class qualean (object):
 
     def __str__ (self):
         return '{0}'.format (self._num)
+
+p=qualean(1)
+print("p: ",p)
+q=qualean(-1)
+print("q: ",q)
+r=qualean(1)
+print("r: ",r)
+r=qualean(-1)
+print("r: ",r)
+
+print("p * q =",p*q)
+print("p * 2 =",p*2)
+print("2 * p =",2*p)
+print("p * q * 2 =",p*q*2)
+print("2 * p * q =",2*p*q)
+# print("p * q * r =",p*q*r)
